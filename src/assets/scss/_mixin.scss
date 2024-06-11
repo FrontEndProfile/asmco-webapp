@@ -1,0 +1,190 @@
+// Define the variable with the list of SPACING Sizes
+$generate-spacings: 0 12 16 18 20 24 36 44 45 56 60 80 100 128;
+
+// flex-gap generator ====
+@mixin gap($size) {
+  gap: $size * 1px;
+}
+
+// gap classes dynamically
+@each $size in $generate-spacings {
+  .g-#{$size} {
+    @include gap($size);
+  }
+}
+
+// Mixin for setting the margin
+@mixin margin($direction, $size) {
+  margin-#{$direction}: $size * 1px;
+}
+
+// Mixin for setting the padding
+@mixin padding($direction, $size) {
+  padding-#{$direction}: $size * 1px;
+}
+
+// margin classes dynamically
+@each $size in $generate-spacings {
+  .m-t-#{$size} {
+    @include margin('top', $size);
+  }
+
+  .m-b-#{$size} {
+    @include margin('bottom', $size);
+  }
+
+  .m-s-#{$size} {
+    @include margin('left', $size);
+  }
+
+  .m-e-#{$size} {
+    @include margin('right', $size);
+  }
+}
+
+// padding classes dynamically
+@each $size in $generate-spacings {
+  .p-t-#{$size} {
+    @include padding('top', $size);
+  }
+
+  .p-b-#{$size} {
+    @include padding('bottom', $size);
+  }
+
+  .p-s-#{$size} {
+    @include padding('left', $size);
+  }
+
+  .p-e-#{$size} {
+    @include padding('right', $size);
+  }
+}
+
+// Mixin for setting the margin-inline and margin-block
+@mixin margin-inline($start, $end) {
+  margin-inline-start: $start * 1px;
+  margin-inline-end: $end * 1px;
+}
+
+@mixin margin-block($top, $bottom) {
+  margin-block-start: $top * 1px;
+  margin-block-end: $bottom * 1px;
+}
+
+// margin-inline classes dynamically
+@each $size in $generate-spacings {
+  .m-inline-#{$size} {
+    @include margin-inline($size, $size);
+  }
+
+  @each $size2 in $generate-spacings {
+    .m-inline-#{$size}-#{$size2} {
+      @include margin-inline($size, $size2);
+    }
+  }
+}
+
+// margin-block classes dynamically
+@each $size in $generate-spacings {
+  .m-block-#{$size} {
+    @include margin-block($size, $size);
+  }
+
+  @each $size2 in $generate-spacings {
+    .m-block-#{$size}-#{$size2} {
+      @include margin-block($size, $size2);
+    }
+  }
+}
+
+// Mixin for setting the padding-inline and padding-block
+@mixin p-inline($start, $end) {
+  padding-inline-start: $start * 1px;
+  padding-inline-end: $end * 1px;
+}
+
+@mixin p-block($top, $bottom) {
+  padding-block-start: $top * 1px;
+  padding-block-end: $bottom * 1px;
+}
+
+// padding-inline classes dynamically
+@each $size in $generate-spacings {
+  .p-inline-#{$size} {
+    @include p-inline($size, $size);
+  }
+
+  @each $size2 in $generate-spacings {
+    .p-inline-#{$size}-#{$size2} {
+      @include p-inline($size, $size2);
+    }
+  }
+}
+
+// padding-block classes dynamically
+@each $size in $generate-spacings {
+  .p-block-#{$size} {
+    @include p-block($size, $size);
+  }
+
+  @each $size2 in $generate-spacings {
+    .p-block-#{$size}-#{$size2} {
+      @include p-block($size, $size2);
+    }
+  }
+}
+
+// Flex utility mixins
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+}
+
+@mixin align-items($align) {
+  align-items: $align;
+}
+
+@mixin justify-content($justify) {
+  justify-content: $justify;
+}
+
+// Flex utility classes
+.d-flex {
+  @include flex;
+}
+
+.flex-row {
+  @include flex-direction(row);
+}
+
+.flex-column {
+  @include flex-direction(column);
+}
+
+@each $align in (start, end, center, baseline, stretch) {
+  .align-items-#{$align} {
+    @include align-items(#{$align});
+  }
+}
+
+@each $justify in (start, end, center, space-between, space-around, space-evenly) {
+  .justify-content-#{$justify} {
+    @include justify-content(#{$justify});
+  }
+}
+
+// Mixin for responsive container
+@mixin container($max-width) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+}
+
+// Using the mixin to create the container class
+.container {
+  @include container(1328px);
+}
