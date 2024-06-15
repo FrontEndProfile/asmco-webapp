@@ -1,0 +1,21 @@
+// another components scss file
+@import 'index';
+
+.bar {
+    &-head {
+        @extend .primary__font_16;
+        letter-spacing: 0.48px;
+    }
+    &-menu {
+        li a {
+            @extend .primary__font_16;
+        }
+        li + li button {
+            border-left: 0.5px solid $white;
+        }
+        // next find the way catch the last child buttons || R&D
+        button {
+            @extend .announcement__bar_btn;
+        }
+    }
+}

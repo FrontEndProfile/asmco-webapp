@@ -1,0 +1,20 @@
+
+@import 'variables';
+
+// Base Buttons for every btn default style
+.base_buttons {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+// Announcement Bar 
+.announcement__bar_btn {
+    color: $white;
+    font-family: $primary-font;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 2px 10px;
+}

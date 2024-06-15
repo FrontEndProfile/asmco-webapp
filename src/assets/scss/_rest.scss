@@ -1,20 +1,24 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: unset;
-  padding: unset;
+    box-sizing: border-box;
+    margin: unset;
+    padding: unset;
+}
+
+html {
+    font-size: 16px;
 }
 
 html:focus-within {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body,
 html {
-  height: 100%;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+    height: 100%;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -22,18 +26,18 @@ picture,
 svg,
 video,
 canvas {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 ul,
 ol {
-  list-style: none;
-  margin: unset;
+    list-style: none;
+    margin: unset;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 p,
@@ -43,13 +47,17 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  hyphens: auto;
+    overflow-wrap: break-word;
 }
 
 :is(h1, h2, h3, h4, h5, h6, p) {
-  margin: unset;
+    margin: unset;
+}
+
+p {
+    hyphens: auto;
+}
+
+button {
+    @extend .base_buttons;
 }
